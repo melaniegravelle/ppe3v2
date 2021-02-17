@@ -1,0 +1,39 @@
+h1,h2
+{
+    text-align:center;
+}
+
+h2 {
+    color: #999;
+}
+
+h6.text-muted {
+    text-align: right;
+    font-size: 0.8rem;
+}
+
+.news p
+{
+    background-color:#CCCCCC;
+    margin-top:0px;
+}
+.news
+{
+    width:70%;
+    margin:auto;
+}
+.list-group-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.list-group-item span {
+    font-size: 0.9rem;
+}
+
+a
+{
+    text-decoration: none;
+    color: blue;
+}

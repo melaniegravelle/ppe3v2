@@ -1,0 +1,60 @@
+{%  extends 'Pagelayout.twig' %}
+
+{% block subtitle %}
+    <h2>Créer un billet</h2>
+{% endblock %}
+
+
+{%  block body %}
+<div class="row justify-content-center">
+    {%  if billet is defined %}
+        {% if billet == false %}
+            <div class="col-9">
+                <p class="alert alert-danger">{{ errorMess }}</p>
+            </div>
+        {% else %}
+            <div class="col-9">
+                <div class="card">
+                    <div class="card-header">
+                        Votre billet
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ billet.titre }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Créé le {{ billet.date_creation|date("d/m/Y à H:i:s") }}</h6>
+                        <p class="card-text">{{ billet.contenu }}</p>
+                        <a href="?controller=billets&action=createBillet" class="btn btn-primary">Nouveau billet</a>
+                        <a href="?controller=billets&action=updateBillet&id={{ id }}" class="btn btn-primary">Modifier le billet</a>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+    {%  else %}
+    <div class="col-9">
+        <form action="?controller=billets&action=createBillet" method="post" name="create">
+            <div class="form-group row">
+                <label for="titre" class="col-sm-2 col-form-label">Titre</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="titre" value="" name="titre">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="contenu" class="col-sm-2 col-form-label">Corps de texte</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" id="contenu" rows="10" name="contenu"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-12 text-right">
+                    <button type="submit" class="btn btn-primary">Valider</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    {%  endif %}
+
+</div>
+
+
+{% endblock %}
