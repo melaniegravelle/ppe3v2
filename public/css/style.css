@@ -1,9 +1,13 @@
-h1,h2
+h1
 {
     text-align:center;
+    font-family: 'alexbrush';
+    margin-top: 8%;
 }
 
 h2 {
+    text-align:center;
+    font-family: 'alexbrush';
     color: #999;
 }
 
@@ -36,4 +40,12 @@ a
 {
     text-decoration: none;
     color: blue;
+}
+
+
+@font-face 
+{
+    font-family: "alexbrush";
+    src: url('../../fonts/AlexBrush-Regular.ttf') format("truetype"),
+    url('../../fonts/AlexBrush-Regular.woff') format("woff");
 }

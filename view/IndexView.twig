@@ -8,8 +8,21 @@
 <div class="row justify-content-center mt-5">
     <div class="col-9">
         <ul class="list-group list-group-flush">
-        {% for billet in listBillets %}
+        {# {% for billet in listBillets %}
             <li class="list-group-item"><a href="#">{{ billet.titre }}</a> <span>publié le {{ billet.date_creation_fr}}</span></li>
+        {% endfor %} #}
+        {% for billet in listBillets %}
+        <div class="card" style="margin-bottom:1%;">
+            <div class="card-header">
+                {{ billet.titre }}
+            </div>
+            <div class="card-body">
+                <blockquote class="blockquote mb-0" style="padding-bottom:1%;">
+                    <p>{{ billet.contenu }}</p>
+                    <footer class="blockquote-footer">Publié le <cite title="Source Title">{{ billet.date_creation_fr}}</cite></footer>
+                </blockquote>
+            </div>
+        </div>
         {% endfor %}
         </ul>
     </div>
