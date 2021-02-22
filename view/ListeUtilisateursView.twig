@@ -1,0 +1,26 @@
+{%  extends 'Pagelayout.twig' %}
+
+{% block subtitle %}
+    <h2>Gestion des Utilisateurs</h2>
+{% endblock %}
+
+{%  block body %}
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Prénom</th>
+      <th scope="col">Login</th>
+    </tr>
+  </thead>
+    {% for utilisateur in listUtilisateurs %}
+        <tbody>
+            <tr>
+                <td>{{ utilisateur.nom }}</td>
+                <td>{{ utilisateur.prenom }}</td>
+                <td>{{ utilisateur.login }}</td>
+            </tr>
+        </tbody>
+    {% endfor %}
+</table>
+{% endblock %}
