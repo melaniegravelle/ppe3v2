@@ -22,13 +22,13 @@ class UtilisateursController extends Controller
 
     public function listUtilisateursAction()
     {
-        $listUtilistaurs = $this->utilisateurManager->getAllUtilisateurs();
-        $data = [ 'listUtilisateurs'=>$listUtilistaurs ];
+        $listUtilisateurs = $this->utilisateurManager->getAllUtilisateurs();
+        $data = [ 'listUtilisateurs'=>$listUtilisateurs ];
         $this->render( 'listUtilisateurs', $data );
     }
 
     public function createUtilisateurAction()
     {
-        
+
     }
 }

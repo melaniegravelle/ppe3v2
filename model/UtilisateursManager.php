@@ -9,14 +9,7 @@ class UtilisateursManager extends Manager
         $q = $this->manager
             ->db
             ->prepare(
-                'SELECT 
-                    id, 
-                    nom, 
-                    prenom, 
-                    identifiant,
-                    mot_de_passe, 
-                FROM utilisateurs
-                ORDER BY id'
+                'SELECT * FROM utilisateurs'
             );
         $q->execute();
 

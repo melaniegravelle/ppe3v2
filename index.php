@@ -25,7 +25,7 @@ die;*/
 
 
 
-$controllers = ['index', 'commentaires', 'billets'];
+$controllers = ['index', 'commentaires', 'billets', 'utilisateurs'];
 
 /*
  * On teste si le paramètre controller existe
