@@ -3,9 +3,10 @@ h1
     text-align:center;
     font-family: 'alexbrush';
     margin-top: 8%;
+    font-size: 100px;
 }
 
-h2 {
+h2, h3 {
     text-align:center;
     font-family: 'alexbrush';
     color: #999;
@@ -42,6 +43,15 @@ a
     color: blue;
 }
 
+tbody, nav, th, #newuser, .list-group-item.list-group-item-action.flex-column.align-items-start, .btnReturnBillets, label
+{
+    font-family: Courier New, monospace;
+}
+
+.card-body, .card-header
+{
+    font-family: Times, Times New Roman, serif;
+}
 
 @font-face 
 {
