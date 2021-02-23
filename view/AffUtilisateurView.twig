@@ -1,7 +1,7 @@
 {%  extends 'Pagelayout.twig' %}
 
 {% block subtitle %}
-    <h2>{{}}</h2>
+    <h2>{{ utilisateur.nom }}</h2>
 {% endblock %}
 
 {%  block body %}
@@ -27,5 +27,4 @@
         </table>
     </div>
 </div>
-<button type="button" id="newuser" class="btn btn-light" href="?controller=utilisateurs&action=listUtilisateurs">retour</button>
 {% endblock %}

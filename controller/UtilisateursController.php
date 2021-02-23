@@ -27,9 +27,12 @@ class UtilisateursController extends Controller
         $this->render( 'listUtilisateurs', $data );
     }
 
-    public function createUtilisateurAction()
+    public function affUtilisateurAction()
     {
-        
+        $affUtilisateur = $this->utilisateurManager->getUtilisateur($_GET['id']);
+        $data = ['utilisateur'=>$affUtilisateur];
+        $this->render( 'affUtilisateur', $data );
     }
+
 
 }
