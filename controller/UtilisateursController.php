@@ -42,7 +42,7 @@ class UtilisateursController extends Controller
                 'nom'               => $_REQUEST['nom'],
                 'prenom'            => $_REQUEST['prenom'],
                 'identifiant'       => $_REQUEST['identifiant'],
-                'mot_de_passe'      => $_REQUEST['identifiant'],
+                'mot_de_passe'      => $_REQUEST['mot_de_passe'],
                 'pays'              => $_REQUEST['pays'],
                 'ville'             => $_REQUEST['ville'],
                 'code_postal'       => $_REQUEST['code_postal']
