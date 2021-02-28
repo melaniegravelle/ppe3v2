@@ -34,5 +34,35 @@ class UtilisateursController extends Controller
         $this->render( 'affUtilisateur', $data );
     }
 
+    public function createUtilisateur()
+    {
+        $data_create_utilisateur = [];
+        if( isset( $_REQUEST['identifiant'] ) ) {
+            $dataDb = [
+                'nom'               => $_REQUEST['nom'],
+                'prenom'            => $_REQUEST['prenom'],
+                'identifiant'       => $_REQUEST['identifiant'],
+                'mot_de_passe'      => $_REQUEST['identifiant'],
+                'pays'              => $_REQUEST['pays'],
+                'ville'             => $_REQUEST['ville'],
+                'code_postal'       => $_REQUEST['code_postal']
+            ];
+            $newUtilisateur = new Utilisateurs( $dataDb );
+
+            if( $id = $this->billetManager->createUtilisateur( $newUtilisateur ) ) {
+                $newUtilisateur->setId( $id );
+                $data_create_utilisateur = [
+                    'id'             => $id,
+                    'utilisateur'    => $dataDb
+                ];
+            } else {
+                $data_create_utilisateur = [
+                    'utilisateur'    => false,
+                    'errorMess'      => 'An mistery error occured'
+                ];
+            }
+        }
+        $this->render( 'createUtilisateur', $data_create_utilisateur );
+    }
 
 }
