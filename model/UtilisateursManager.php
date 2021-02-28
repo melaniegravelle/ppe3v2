@@ -21,7 +21,12 @@ class UtilisateursManager extends Manager
 
     public function createUtilisateur()
     {
-        
+        // $q = $this->manager
+        //     ->db
+        //     ->prepare(
+        //         'INSERT INTO'
+        //     );
+        // $q->execute();
     }
 
     public function getUtilisateur($idUtilisateur)
