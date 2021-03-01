@@ -37,7 +37,7 @@ class UtilisateursController extends Controller
     public function createUtilisateurAction()
     {
         $data_create_utilisateur = [];
-        if( isset( $_REQUEST['identifiant'] ) ) {
+        if( isset( $_REQUEST['inscription'] ) ) {
             $dataDb = [
                 'nom'               => $_REQUEST['nom'],
                 'prenom'            => $_REQUEST['prenom'],
@@ -49,7 +49,7 @@ class UtilisateursController extends Controller
             ];
             $newUtilisateur = new Utilisateurs( $dataDb );
 
-            if( $id = $this->billetManager->createUtilisateur( $newUtilisateur ) ) {
+            if( $id = $this->utilisateurManager->createUtilisateur( $newUtilisateur ) ) {
                 $newUtilisateur->setId( $id );
                 $data_create_utilisateur = [
                     'id'             => $id,
