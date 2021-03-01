@@ -34,6 +34,13 @@ class UtilisateursController extends Controller
         $this->render( 'affUtilisateur', $data );
     }
 
+    public function supprUtilisateurAction()
+    {
+        $supprUtilisateur = $this->utilisateurManager->supprUtilisateur($_GET['id']);
+        $data = ['utilisateur'=>$supprUtilisateur];
+        $this->render( 'supprUtilisateur', $data );
+    }
+
     public function modifUtilisateurAction()
     {
         $modifUtilisateur = $this->utilisateurManager->getUtilisateur($_GET['id']);

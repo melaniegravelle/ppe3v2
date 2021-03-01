@@ -52,6 +52,18 @@ class UtilisateursManager extends Manager
         $q->execute([':id' => $idUtilisateur]);
         return $q->fetch(\PDO::FETCH_ASSOC);
     }
+
+    public function supprUtilisateur($idUtilisateur)
+    {
+        $q = $this->manager
+            ->db
+            ->prepare(
+                'DELETE FROM utilisateur
+                WHERE id = :id'
+            );
+        $q->execute([':id' => $idUtilisateur]);
+        return $q->fetch(\PDO::FETCH_ASSOC);
+    }
 }
 
 ?>
