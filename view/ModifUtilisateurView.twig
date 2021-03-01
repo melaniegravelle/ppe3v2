@@ -7,7 +7,7 @@
 {%  block body %}
     <div class="row justify-content-center">
         <div class="col-9">
-            <form>
+            <form method="POST">
                 <div class="form-group">
                     <label for="nom">Nom</label>
                     <input type="text" class="form-control" id="nom" value="{{utilisateur.nom}}">
@@ -32,6 +32,7 @@
                     <input type="text" class="form-control" id="code_postal">
                 </div> #}
                 <button type="submit" id="modification" class="btn btn-primary">Modifier</button>
+                <a href="javascript:window.close();"><button type="submit" id="retour" class="btn btn-light">Retour</button></a>
             </form>
         </div>
     </div>
