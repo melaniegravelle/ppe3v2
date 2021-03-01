@@ -37,7 +37,7 @@ class UtilisateursController extends Controller
     public function createUtilisateurAction()
     {
         $data_create_utilisateur = [];
-        if( isset( $_REQUEST['inscription'] ) ) {
+        if( isset( $_REQUEST['identifiant'] ) ) {
             $dataDb = [
                 'nom'               => $_REQUEST['nom'],
                 'prenom'            => $_REQUEST['prenom'],

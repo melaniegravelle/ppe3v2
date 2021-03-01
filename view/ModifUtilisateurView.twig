@@ -1,0 +1,38 @@
+{%  extends 'Pagelayout.twig' %}
+
+{% block subtitle %}
+    <h2>Modifier l'utilisateur</h2>
+{% endblock %}
+
+{%  block body %}
+    <div class="row justify-content-center">
+        <div class="col-9">
+            <form>
+                <div class="form-group">
+                    <label for="nom">Nom</label>
+                    <input type="text" class="form-control" id="nom" value="{{utilisateur.nom}}">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" class="form-control" id="prenom" value="{{utilisateur.prenom}}">
+                </div>
+                <div class="form-group">
+                    <label for="identifiant">Identifiant</label>
+                    <input type="email" class="form-control" id="identifiant" aria-describedby="indicationIdentifiant" value="{{utilisateur.identifiant}}">
+                    <small id="indicationIdentifiant" class="form-text text-muted">Inscrire une adresse email</small>
+                </div>
+                <div class="form-group">
+                    <label for="mot_de_passe">Mot de passe</label>
+                    <input type="password" class="form-control" id="mot_de_passe" value="{{utilisateur.mot_de_passe}}">
+                </div>
+                {# <div class="form-group">
+                    <label for="pays">Pays</label>
+                    <input type="text" class="form-control" id="pays">
+                    <label for="ville">Ville</label>
+                    <input type="text" class="form-control" id="ville">
+                    <label for="code_postal">Code Postal</label>
+                    <input type="text" class="form-control" id="code_postal">
+                </div> #}
+                <button type="submit" id="modification" class="btn btn-primary">Modifier</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
