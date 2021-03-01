@@ -34,6 +34,13 @@ class UtilisateursController extends Controller
         $this->render( 'affUtilisateur', $data );
     }
 
+    public function modifUtilisateurAction()
+    {
+        $modifUtilisateur = $this->utilisateurManager->getUtilisateur($_GET['id']);
+        $data = ['utilisateur'=>$modifUtilisateur];
+        $this->render( 'modifUtilisateur', $data );
+    }
+
     public function createUtilisateurAction()
     {
         $data_create_utilisateur = [];
