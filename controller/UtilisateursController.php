@@ -57,8 +57,6 @@ class UtilisateursController extends Controller
             ];
             $newUtilisateur = new Utilisateurs( $dataDb );
 
-            echo 'test';die;
-
             if( $id = $this->utilisateurManager->createUtilisateur( $newUtilisateur ) ) {
                 $newUtilisateur->setId( $id );
                 $data_create_utilisateur = [
