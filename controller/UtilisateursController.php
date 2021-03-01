@@ -73,7 +73,6 @@ class UtilisateursController extends Controller
             }
         }
         $this->render( 'createUtilisateur', $data_create_utilisateur );
-
     }
 
     public function supprUtilisateur()
