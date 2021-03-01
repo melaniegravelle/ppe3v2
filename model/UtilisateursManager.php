@@ -19,14 +19,24 @@ class UtilisateursManager extends Manager
         return $listUtilisateurs;
     }
 
-    public function createUtilisateur()
+    public function createUtilisateur(Utilisateurs $utilisateurs)
     {
-        // $q = $this->manager
-        //     ->db
-        //     ->prepare(
-        //         'INSERT INTO'
-        //     );
-        // $q->execute();
+        $q = $this->manager
+                    ->db
+                    ->prepare('INSERT INTO utilisateurs (nom, prenom, identifiant, mot_de_passe)
+                                VALUES ( :nom, :prenom, :identifiant, :mot_de_passe)'
+                    );
+        $ret = $q->execute([
+            ':nom' => $utilisateurs->getNom(),
+            ':prenom' => $utilisateurs->getPrenom(),
+            ':identifiant' => $utilisateurs->getIdentifiant(),
+            ':mot_de_passe' => $utilisateurs->getMotdepasse(),
+            
+        ]);
+        if( $ret ) {
+            $ret = $this->manager->db->lastInsertId();
+        }
+        return $ret;
     }
 
     public function getUtilisateur($idUtilisateur)

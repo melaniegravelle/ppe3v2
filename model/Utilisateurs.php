@@ -7,7 +7,10 @@ class Utilisateurs
             $_nom,
             $_prenom,
             $_identifiant,
-            $_mot_de_passe;
+            $_mot_de_passe,
+            $_pays,
+            $_ville,
+            $_code_postal;
 
     public function __construct(array $donnees)
     {

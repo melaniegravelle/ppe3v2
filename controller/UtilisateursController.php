@@ -34,7 +34,7 @@ class UtilisateursController extends Controller
         $this->render( 'affUtilisateur', $data );
     }
 
-    public function createUtilisateur()
+    public function createUtilisateurAction()
     {
         $data_create_utilisateur = [];
         if( isset( $_REQUEST['identifiant'] ) ) {
@@ -43,9 +43,9 @@ class UtilisateursController extends Controller
                 'prenom'            => $_REQUEST['prenom'],
                 'identifiant'       => $_REQUEST['identifiant'],
                 'mot_de_passe'      => $_REQUEST['mot_de_passe'],
-                'pays'              => $_REQUEST['pays'],
-                'ville'             => $_REQUEST['ville'],
-                'code_postal'       => $_REQUEST['code_postal']
+                // 'pays'              => $_REQUEST['pays'],
+                // 'ville'             => $_REQUEST['ville'],
+                // 'code_postal'       => $_REQUEST['code_postal']
             ];
             $newUtilisateur = new Utilisateurs( $dataDb );
 
@@ -63,6 +63,11 @@ class UtilisateursController extends Controller
             }
         }
         $this->render( 'createUtilisateur', $data_create_utilisateur );
+    }
+
+    public function supprUtilisateur()
+    {
+
     }
 
 }
