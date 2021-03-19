@@ -30,3 +30,5 @@ class dbConnect
         return self::$instance;
     }
 }
+
+?>
