@@ -1,7 +1,7 @@
 <?php
 namespace model;
 
-use dbConnect;
+use classes\dbConnect;
 
 class Manager
 {

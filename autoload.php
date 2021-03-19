@@ -4,7 +4,7 @@
 function chargerClasse($classe)
 {
 
-   // echo $classe.'<br/>';
+   //echo $classe.'<br/>';
 
     $backslash = '\\';
     $file = str_replace($backslash, DIRECTORY_SEPARATOR, $classe).'.php';
