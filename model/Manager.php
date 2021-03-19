@@ -1,13 +1,13 @@
 <?php
 namespace model;
 
-use classes\dbConnect;
+use dbConnect;
 
 class Manager
 {
-    private $_dsn           = 'mysql:host=localhost:3306;dbname=blog';
-    private $_login         = 'blog';
-    private $_password      = 'blog';
+    private $_dsn           = 'mysql:host=127.0.0.1;dbname=blog';
+    private $_login         = 'root';
+    private $_password      = '';
 
 
     /**

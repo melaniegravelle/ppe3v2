@@ -1,5 +1,4 @@
 <?php
-namespace classes;
 
 class dbConnect
 {
@@ -30,3 +29,5 @@ class dbConnect
         return self::$instance;
     }
 }
+
+?>
