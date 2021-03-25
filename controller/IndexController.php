@@ -1,15 +1,19 @@
 <?php
 namespace controller;
 
+use model\BilletsManager;
+
 class IndexController extends Controller
 {
 
 
     public function defaultAction()
     {
+        $billetManager = new BilletsManager();
+        $listBillets = $billetManager->getAllBillets();
         $data = [
-            'message'=>"Bienvenue sur le site de gestion d'équipe",
-            'isConnected' => $_SESSION['isConnected']
+            'listBillets'=>$listBillets,
+            'message'=>'Bievenue sur mon super blog'
         ];
 
         $this->render( 'index', $data );

@@ -64,8 +64,7 @@ abstract class Controller
             'title' => "Error",
             'message' => $message
         ];
-        // $this->render("message", $data);
-        var_dump($data);
+        $this->render("message", $data);
     }
 
 
