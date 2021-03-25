@@ -1,5 +1,13 @@
 <?php
-session_start();
+// session_start();
+
+// if($_SESSION(''))
+// {
+
+// }
+// else{
+
+// }
 require 'autoload.php';
 require_once 'vendor/autoload.php';
 
