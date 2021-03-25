@@ -67,8 +67,17 @@ class UtilisateursManager extends Manager
 
     public function verifUtilisateur($login, $mot_de_passe)
     {
-        
+        $q = $this->manager
+        ->db
+        ->prepare(
+            'SELECT 
+                *
+            FROM utilisateurs 
+            WHERE login = :login AND mot_de_passe = :mot_de_passe'
+        );
+        $q->execute([':login' => $login,
+                    ':mot_de_passe' => $mot_de_passe]);
+        return $q->fetch(\PDO::FETCH_ASSOC);
     }
 }
-
 ?>

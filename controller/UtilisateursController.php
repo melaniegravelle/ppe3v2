@@ -89,7 +89,27 @@ public function verifUtilisateurAction()
     {
         if(isset($_REQUEST['connexion']) && empty($_REQUEST['login']) && empty($_REQUEST['mot_de_passe']))
         {
-
+            $login = $_REQUEST['login'];
+            $mot_de_passe = $_REQUEST['mot_de_passe'];
+            $utilisateur = new UtilisateursManager();
+            if($utilisateur->verifUtilisateur($login, $mot_de_passe))
+            {
+                $_SESSION['isConnected'] = true;
+                $data = [
+                    'message_test'=>"Reussi",
+                    'isConnected'=>$_SESSION['isConnected']
+                ];
+        
+                $this->render( 'index', $data );
+            }else 
+            {
+                $_SESSION['isConnected'] = false;
+                $data = [
+                    'message_test'=>"Echec"
+                ];
+        
+                $this->render( 'connexion', $data );
+            }
         }
     }
 }
