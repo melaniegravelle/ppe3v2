@@ -1,38 +1,20 @@
 <?php
+session_start();
+
 require 'autoload.php';
 require_once 'vendor/autoload.php';
 
 ini_set( 'display_errors', 1 );
 error_reporting( E_ALL );
 
-
-/*
- *  Utilisation simple de Twig
- *
-$monTableau = ['nom'=>'Fraticelli', 'prenom'=>'Fred'];
-
-$users = ['Fred', 'Mélanie', 'Alex', 'Ilya', 'Kalil'];
-
-$data = [
-    'title'         => 'Mon super blog',
-    'monTableau'    => $monTableau,
-    'users'         => $users
-];
-
-echo $twig->render( 'mavue2.twig', $data );
-
-die;*/
-
-
-
-$controllers = ['index', 'commentaires', 'billets'];
+$controllers = ['index', 'connexion' ,'utilisateurs'];
 
 /*
  * On teste si le paramètre controller existe
  * et correspond à un contrôleur de la liste $controllers
  */
-if (isset($_GET['controller']) and in_array($_GET['controller'], $controllers)) {
-    $controllerName = ucfirst( $_GET['controller'] );
+if (isset($_REQUEST['controller']) and in_array($_REQUEST['controller'], $controllers)) {
+    $controllerName = ucfirst( $_REQUEST['controller'] );
 } else {
     $controllerName = ucfirst( $controllers[0] );
 }
