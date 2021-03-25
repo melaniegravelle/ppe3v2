@@ -72,6 +72,10 @@ class UtilisateursController extends Controller
                 $this->listUtilisateursAction();
             } 
         }
+        elseif(isset( $_REQUEST['retour'] ))
+        {
+            $this->listUtilisateursAction();
+        }
         else 
         {
             $data_create_utilisateur = [
