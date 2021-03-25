@@ -23,36 +23,41 @@ class UtilisateursController extends Controller
     public function listUtilisateursAction()
     {
         $listUtilisateurs = $this->utilisateurManager->getAllUtilisateurs();
-        $data = [ 'listUtilisateurs'=>$listUtilisateurs ];
+        $data = [   'listUtilisateurs'=>$listUtilisateurs, 
+                    'isConnected'=>$_SESSION['isConnected']];
+        
         $this->render( 'listUtilisateurs', $data );
     }
 
     public function affUtilisateurAction()
     {
         $affUtilisateur = $this->utilisateurManager->getUtilisateur($_GET['id']);
-        $data = ['utilisateur'=>$affUtilisateur];
+        $data = [   'utilisateur'=>$affUtilisateur,
+                    'isConnected'=>$_SESSION['isConnected']];
         $this->render( 'affUtilisateur', $data );
     }
 
     public function supprUtilisateurAction()
     {
         $supprUtilisateur = $this->utilisateurManager->supprUtilisateur($_REQUEST['id']);
-        $data = ['utilisateur'=>$supprUtilisateur];
+        $data = [   'utilisateur'=>$supprUtilisateur,
+                    'isConnected'=>$_SESSION['isConnected']];
         $this->render( 'supprUtilisateur', $data );
     }
 
     public function modifUtilisateurAction()
     {
         $modifUtilisateur = $this->utilisateurManager->getUtilisateur($_REQUEST['id']);
-        $data = ['utilisateur'=>$modifUtilisateur];
+        $data = [   'utilisateur'=>$modifUtilisateur,
+                    'isConnected'=>$_SESSION['isConnected']];
         $this->render( 'modifUtilisateur', $data );
     }
 
     public function createUtilisateurAction()
     {
-
-        $data_create_utilisateur = [];
-        if( isset( $_REQUEST['login'] ) ) {
+        
+        $data_create_utilisateur = ['isConnected'=>$_SESSION['isConnected']];
+        if( isset( $_REQUEST['ajouter'] ) ) {
             $dataDb = [
                 'nom'               => $_REQUEST['nom'],
                 'prenom'            => $_REQUEST['prenom'],
@@ -61,20 +66,27 @@ class UtilisateursController extends Controller
             ];
             $newUtilisateur = new Utilisateurs( $dataDb );
 
-            if( $id = $this->utilisateurManager->createUtilisateur( $newUtilisateur ) ) {
+            if( $id = $this->utilisateurManager->createUtilisateur( $newUtilisateur ) ) 
+            {
                 $newUtilisateur->setId( $id );
                 $data_create_utilisateur = [
                     'id'             => $id,
-                    'utilisateur'    => $dataDb
+                    'utilisateur'    => $dataDb,
+                    'isConnected'    =>$_SESSION['isConnected']
                 ];
-            } else {
-                $data_create_utilisateur = [
-                    'utilisateur'    => false,
-                    'errorMess'      => 'An mistery error occured'
-                ];
-            }
+                $this->render( 'listUtilisateurs', $data_create_utilisateur );
+            } 
         }
-        $this->render( 'createUtilisateur', $data_create_utilisateur );
+        else 
+        {
+            $data_create_utilisateur = [
+                'utilisateur'    => false,
+                'errorMess'      => 'An mistery error occured',
+                'isConnected'=>$_SESSION['isConnected']
+            ];
+            $this->render( 'createUtilisateur', $data_create_utilisateur );
+        }
+        
     }
 
     public function supprUtilisateur()
@@ -94,20 +106,14 @@ public function verifUtilisateurAction()
             {
                 
                 $_SESSION['isConnected'] = true;
-                $data = [
-                    'message_test'=>"Reussi",
-                    'isConnected'=>$_SESSION['isConnected']
-                ];
-                
+                $data = ['isConnected'=>$_SESSION['isConnected']];
                 $this->render( 'index', $data );
             
             }
             else 
             {
                 $_SESSION['isConnected'] = false;
-                $data = [
-                    'message_test'=>"Echec"
-                ];
+                $data = [];
         
                 $this->render( 'connexion', $data );
             }

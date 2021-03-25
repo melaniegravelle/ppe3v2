@@ -17,11 +17,11 @@
           <th scope="col">Supprimer</th>
         </tr>
       </thead>
-      <button type="button" id="newuser" class="btn btn-link"><a href="?controller=utilisateurs&action=createUtilisateur" target="_blank">+ Ajout d'un nouvel utilisateur</a></button>
+      <button type="button" id="newuser" class="btn btn-link"><a href="?controller=utilisateurs&action=createUtilisateur">+ Ajout d'un nouvel utilisateur</a></button>
       {% for utilisateur in listUtilisateurs %}
           <tbody>
               <tr>
-                  <td><a href="?controller=utilisateurs&action=AffUtilisateur&id={{utilisateur.id}}" target="_blank">{{ utilisateur.nom }}</a></td>
+                  <td><a href="?controller=utilisateurs&action=AffUtilisateur&id={{utilisateur.id}}">{{ utilisateur.nom }}</a></td>
                   <td>{{ utilisateur.prenom }}</td>
                   <td>{{ utilisateur.login }}</td>
                   <td><a href="?controller=utilisateurs&action=ModifUtilisateur&id={{utilisateur.id}}" target="_blank"><button type="button" class="btn btn-light" id="modifier_utilisateur"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen-fill" viewBox="0 0 16 16">
