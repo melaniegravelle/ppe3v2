@@ -6,7 +6,7 @@ ini_set( 'display_errors', 1 );
 error_reporting( E_ALL );
 
 
-$controllers = ['index', 'connexion' ,'utilisateurs'];
+$controllers = ['index', 'index2', 'connexion' ,'utilisateurs'];
 
 /*
  * On teste si le paramètre controller existe

@@ -85,4 +85,17 @@ class UtilisateursController extends Controller
 
     }
 
+public function verifUtilisateurAction()
+    {
+        if(isset($_REQUEST['connexion']))
+        {
+            $login = $_REQUEST['login'];
+            $mot_de_passe = $_REQUEST['mot_de_passe'];
+            $utilisateur = new UtilisateursManager();
+            if( $utilisateur->getUtilisateur($login, $mot_de_passe ))
+            {
+
+            }
+        }
+    }
 }

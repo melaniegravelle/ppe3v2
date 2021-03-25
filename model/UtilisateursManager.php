@@ -23,13 +23,13 @@ class UtilisateursManager extends Manager
     {
         $q = $this->manager
                     ->db
-                    ->prepare('INSERT INTO utilisateurs (nom, prenom, identifiant, mot_de_passe)
-                                VALUES ( :nom, :prenom, :identifiant, :mot_de_passe)'
+                    ->prepare('INSERT INTO utilisateurs (nom, prenom, login, mot_de_passe)
+                                VALUES ( :nom, :prenom, :login, :mot_de_passe)'
                     );
         $ret = $q->execute([
             ':nom' => $utilisateurs->getNom(),
             ':prenom' => $utilisateurs->getPrenom(),
-            ':identifiant' => $utilisateurs->getIdentifiant(),
+            ':login' => $utilisateurs->getLogin(),
             ':mot_de_passe' => $utilisateurs->getMotdepasse(),
             
         ]);
@@ -59,6 +59,20 @@ class UtilisateursManager extends Manager
             ->db
             ->prepare(
                 'DELETE FROM utilisateur
+                WHERE id = :id'
+            );
+        $q->execute([':id' => $idUtilisateur]);
+        return $q->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function verifUtilisateur($login, $mot_de_passe)
+    {
+        $q = $this->manager
+            ->db
+            ->prepare(
+                'SELECT 
+                    *
+                FROM utilisateurs 
                 WHERE id = :id'
             );
         $q->execute([':id' => $idUtilisateur]);

@@ -6,7 +6,7 @@ class Utilisateurs
     private $_id,
             $_nom,
             $_prenom,
-            $_identifiant,
+            $_login,
             $_mot_de_passe,
             $_pays,
             $_ville,
@@ -44,9 +44,9 @@ class Utilisateurs
         return $this->_prenom;
     }
 
-    public function getIdentifiant()
+    public function getLogin()
     {
-        return $this->_identifiant;
+        return $this->_login;
     }
 
     public function getMotDePasse()
@@ -68,9 +68,9 @@ class Utilisateurs
     {
         $this->_prenom = $prenom;
     }
-    public function setIndentifiant($identifiant)
+    public function setLogin($login)
     {
-        $this->_identifiant = $identifiant;
+        $this->_login = $login;
     }
     public function setMotDePasse($mot_de_passe)
     {
