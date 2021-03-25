@@ -1,0 +1,39 @@
+{%  extends 'Pagelayout.twig' %}
+
+{% block subtitle %}
+    <h2>Créer un nouvel utilisateur</h2>
+{% endblock %}
+
+{%  block body %}
+    <div class="row justify-content-center">
+        <div class="col-9">
+            <form method="post" action="">
+                <div class="form-group">
+                    <label for="nom">Nom</label>
+                    <input type="text" class="form-control" id="nom" autocomplete="off">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" class="form-control" id="prenom" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label for="identifiant">Identifiant</label>
+                    <input type="email" class="form-control" id="identifiant" aria-describedby="indicationIdentifiant" autocomplete="off">
+                    <small id="indicationIdentifiant" class="form-text text-muted">Inscrire une adresse email</small>
+                </div>
+                <div class="form-group">
+                    <label for="mot_de_passe">Mot de passe</label>
+                    <input type="password" class="form-control" id="mot_de_passe" autocomplete="off">
+                </div>
+                {# <div class="form-group">
+                    <label for="pays">Pays</label>
+                    <input type="text" class="form-control" id="pays">
+                    <label for="ville">Ville</label>
+                    <input type="text" class="form-control" id="ville">
+                    <label for="code_postal">Code Postal</label>
+                    <input type="text" class="form-control" id="code_postal">
+                </div> #}
+                <button type="submit" id="inscription" class="btn btn-primary">Inscrire</button>
+                <a href="javascript:window.close();"><button type="submit" id="retour" class="btn btn-light">Retour</button></a>
+            </form>
+        </div>
+    </div>
+{% endblock %}

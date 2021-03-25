@@ -4,38 +4,51 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Mon blog</title>
+    <title>M2L</title>
     <link href="public/css/bootstrap.css" rel="stylesheet">
     <link href="public/css/style.css" rel="stylesheet" />
 </head>
 
 <body>
 <header class="container-fluid mb-5">
-    <div class="row justify-content-center">
-        <div class="col-12">
-            <h1>Mon super blog !</h1>
-            {%  block subtitle %}{% endblock subtitle %}
-        </div>
-    </div>
     {% block header %}
     <div class="row">
-        <nav class="navbar navbar-expand bg-light">
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                   <li class="nav-item">
                         <a class="nav-link" href="index.php">Accueil<span class="sr-only">(current)</span></a>
                     </li>
+                    {% if isConnected == true %}
+                    {# {% if app.session.isConnected == true %} #}
                     <li class="nav-item">
-                        <a class="nav-link" href="?controller=billets&action=createBillet">Créer un billet</a>
+                        <a class="nav-link" href="#">Contenu</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="?controller=billets&action=listBillets">Les derniers billets</a>
+                        <a class="nav-link" href="#">Pages</a>
                     </li>
-                </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Navigation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?controller=utilisateurs&action=listUtilisateurs">Utilisateurs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-success my-2 my-sm-0" href="?controller=connexion&action=deconnexion">Se déconnecter</a>
+                    </li>
+                    {% endif %}
+                </div>
             </div>
         </nav>
     </div>
     {% endblock header %}
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <h1>La Maison des Ligues de Lorraines (M2L)</h1>
+            {%  block subtitle %}{% endblock subtitle %}
+        </div>
+    </div>
 </header>
 
 
