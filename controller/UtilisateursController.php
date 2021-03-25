@@ -52,11 +52,11 @@ class UtilisateursController extends Controller
     {
 
         $data_create_utilisateur = [];
-        if( isset( $_REQUEST['identifiant'] ) ) {
+        if( isset( $_REQUEST['login'] ) ) {
             $dataDb = [
                 'nom'               => $_REQUEST['nom'],
                 'prenom'            => $_REQUEST['prenom'],
-                'identifiant'       => $_REQUEST['identifiant'],
+                'login'       => $_REQUEST['login'],
                 'mot_de_passe'      => $_REQUEST['mot_de_passe'],
                 // 'pays'              => $_REQUEST['pays'],
                 // 'ville'             => $_REQUEST['ville'],
@@ -87,15 +87,9 @@ class UtilisateursController extends Controller
 
 public function verifUtilisateurAction()
     {
-        if(isset($_REQUEST['connexion']))
+        if(isset($_REQUEST['connexion']) && empty($_REQUEST['login']) && empty($_REQUEST['mot_de_passe']))
         {
-            $login = $_REQUEST['login'];
-            $mot_de_passe = $_REQUEST['mot_de_passe'];
-            $utilisateur = new UtilisateursManager();
-            if( $utilisateur->getUtilisateur($login, $mot_de_passe ))
-            {
 
-            }
         }
     }
 }

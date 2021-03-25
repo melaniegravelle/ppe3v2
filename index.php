@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'autoload.php';
 require_once 'vendor/autoload.php';
 
@@ -6,7 +7,7 @@ ini_set( 'display_errors', 1 );
 error_reporting( E_ALL );
 
 
-$controllers = ['index', 'index2', 'connexion' ,'utilisateurs'];
+$controllers = ['index', 'connexion' ,'utilisateurs'];
 
 /*
  * On teste si le paramètre controller existe
