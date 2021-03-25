@@ -1,0 +1,31 @@
+{%  extends 'Pagelayout.twig' %}
+
+{% block subtitle %}
+    <h2>Les derniers billets</h2>
+{% endblock %}
+
+
+{%  block body %}
+<div class="row justify-content-center">
+    <div class="col-9">
+        <p>Derniers billets du blog : {{ test }}</p>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-9">
+        {% for billet in listBillets %}
+            <div class="card mt-5">
+                <div class="card-header">
+                    <em>publié le {{ billet.date_creation_fr}}</em>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ billet.titre }}</h5>
+                    <p class="card-text">{{ billet.contenu }}</p>
+                    <a href="index.php?controller=commentaires&billet={{ billet.id }}" class="btn btn-primary">{{ billet.nbComm }} commentaires</a>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
