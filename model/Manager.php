@@ -9,7 +9,7 @@ class Manager
     // private $_login         = 'blog';
     // private $_password      = 'blog';
 
-    private $_dsn           = 'mysql:host=localhost:3306;dbname=ppe3_group2';
+    private $_dsn           = 'mysql:host=localhost:3306;dbname=ppe3_groupe2';
     private $_login         = 'melanie';
     private $_password      = 'fiH3uj7x';
 
