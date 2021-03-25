@@ -37,20 +37,20 @@ class UtilisateursController extends Controller
         $this->render( 'affUtilisateur', $data );
     }
 
-    public function supprUtilisateurAction()
-    {
-        $supprUtilisateur = $this->utilisateurManager->supprUtilisateur($_REQUEST['id']);
-        $data = [   'utilisateur'=>$supprUtilisateur,
-                    'isConnected'=>$_SESSION['isConnected']];
-        $this->render( 'supprUtilisateur', $data );
-    }
-
     public function modifUtilisateurAction()
     {
         $modifUtilisateur = $this->utilisateurManager->getUtilisateur($_REQUEST['id']);
         $data = [   'utilisateur'=>$modifUtilisateur,
                     'isConnected'=>$_SESSION['isConnected']];
         $this->render( 'modifUtilisateur', $data );
+    }
+
+    public function supprUtilisateurAction()
+    {
+        if ( isset( $_REQUEST['id'] ) ) {
+            $this->utilisateurManager->supprUtilisateur($_REQUEST['id']);
+        }
+        $this->listUtilisateursAction();
     }
 
     public function createUtilisateurAction()
@@ -88,12 +88,8 @@ class UtilisateursController extends Controller
         
     }
 
-    public function supprUtilisateur()
-    {
 
-    }
-
-public function verifUtilisateurAction()
+    public function verifUtilisateurAction()
     {   
 
         if(isset($_REQUEST['connexion']) && !empty($_REQUEST['login']) && !empty($_REQUEST['mot_de_passe']))

@@ -59,11 +59,27 @@ class UtilisateursManager extends Manager
         $q = $this->manager
             ->db
             ->prepare(
-                'DELETE FROM utilisateur
+                'DELETE FROM utilisateurs
                 WHERE id = :id'
             );
-        $q->execute([':id' => $idUtilisateur]);
-        return $q->fetch(\PDO::FETCH_ASSOC);
+        $res = $q->execute([':id' => $idUtilisateur]);
+        return $res;
+    }
+
+    public function modifUtilisateur($idUtilisateur)
+    {
+        $q = $this->manager
+            ->db
+            ->prepare(
+                'UP utilisateurs 
+                SET nom = :nom,
+                    prenom = :prenom,
+                    login = :login,
+                    mot_de_passe = :mot_de_passe
+                WHERE id = :id'
+            );
+        $res = $q->execute([':id' => $idUtilisateur]);
+        return $res;
     }
 
     public function verifUtilisateur($login, $mot_de_passe)

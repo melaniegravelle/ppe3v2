@@ -7,7 +7,9 @@
 {%  block body %}
     <div class="row justify-content-center">
         <div class="col-9">
-            <form method="post" action="">
+            <form method="post" action="index.php">
+                <input type="hidden" name="controller" value="utilisateurs"/>
+                <input type="hidden" name="action" value="modifUtilisateur"/>
                 <div class="form-group">
                     <label for="nom">Nom</label>
                     <input type="text" class="form-control" name="nom" id="nom" value="{{utilisateur.nom}}">
@@ -23,8 +25,8 @@
                     <label for="mot_de_passe">Mot de passe</label>
                     <input type="password" class="form-control" name="mot_de_passe" id="mot_de_passe" value="{{utilisateur.mot_de_passe}}">
                 </div>
-                <button type="submit" id="modification" class="btn btn-primary">Modifier</button>
-                <a href="javascript:window.close();"><button type="submit" id="retour" class="btn btn-light">Retour</button></a>
+                <button type="submit" name="modifier" class="btn btn-primary">Modifier</button>
+                <button type="submit" name="retour" class="btn btn-light">Retour</button>
             </form>
         </div>
     </div>
