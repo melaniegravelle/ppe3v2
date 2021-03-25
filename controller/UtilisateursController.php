@@ -63,18 +63,13 @@ class UtilisateursController extends Controller
                 'prenom'            => $_REQUEST['prenom'],
                 'login'             => $_REQUEST['login'],
                 'mot_de_passe'      => $_REQUEST['mot_de_passe'],
+                'statut'            => $_REQUEST['statut']
             ];
             $newUtilisateur = new Utilisateurs( $dataDb );
 
-            if( $id = $this->utilisateurManager->createUtilisateur( $newUtilisateur ) ) 
+            if($this->utilisateurManager->createUtilisateur( $newUtilisateur ) ) 
             {
-                $newUtilisateur->setId( $id );
-                $data_create_utilisateur = [
-                    'id'             => $id,
-                    'utilisateur'    => $dataDb,
-                    'isConnected'    =>$_SESSION['isConnected']
-                ];
-                $this->render( 'listUtilisateurs', $data_create_utilisateur );
+                $this->listUtilisateursAction();
             } 
         }
         else 

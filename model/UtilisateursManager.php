@@ -23,14 +23,15 @@ class UtilisateursManager extends Manager
     {
         $q = $this->manager
                     ->db
-                    ->prepare('INSERT INTO utilisateurs (nom, prenom, login, mot_de_passe)
-                                VALUES ( :nom, :prenom, :login, :mot_de_passe)'
+                    ->prepare('INSERT INTO utilisateurs (nom, prenom, statut, login, mot_de_passe)
+                                VALUES ( :nom, :prenom, :statut, :login, :mot_de_passe)'
                     );
         $ret = $q->execute([
             ':nom' => $utilisateurs->getNom(),
             ':prenom' => $utilisateurs->getPrenom(),
             ':login' => $utilisateurs->getLogin(),
             ':mot_de_passe' => $utilisateurs->getMotdepasse(),
+            ':statut' => $utilisateurs->getStatut(),
             
         ]);
         if( $ret ) {

@@ -8,6 +8,7 @@ class Utilisateurs
             $_prenom,
             $_login,
             $_mot_de_passe,
+            $_statut,
             $_pays,
             $_ville,
             $_code_postal;
@@ -44,6 +45,11 @@ class Utilisateurs
         return $this->_prenom;
     }
 
+    public function getStatut()
+    {
+        return $this->_statut;
+    }
+
     public function getLogin()
     {
         return $this->_login;
@@ -63,6 +69,10 @@ class Utilisateurs
     public function setNom($nom)
     {
         $this->_nom = $nom;
+    }
+    public function setStatut($statut)
+    {
+        $this->_statut = $statut;
     }
     public function setPrenom($prenom)
     {
