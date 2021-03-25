@@ -1,0 +1,18 @@
+{%  extends 'Pagelayout.twig' %}
+
+{% block subtitle %}
+    <h2>Connexion</h2>
+{% endblock %}
+
+
+{%  block body %}
+<div class="row justify-content-center">
+    <div class="col-9">
+        <form method="post" action="">
+        <label for="nom">Identifiant</label>
+        <label for="nom">Mot de passe</label>
+        <button type="submit" id="connexion" class="btn btn-primary">Se connecter</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

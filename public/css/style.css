@@ -17,6 +17,11 @@ h6.text-muted {
     font-size: 0.8rem;
 }
 
+a
+{
+    color: #999;
+}
+
 .news p
 {
     background-color:#CCCCCC;
