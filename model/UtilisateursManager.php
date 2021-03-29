@@ -71,7 +71,7 @@ class UtilisateursManager extends Manager
         $q = $this->manager
             ->db
             ->prepare(
-                'UP utilisateurs 
+                'UPDATE utilisateurs 
                 SET nom = :nom,
                     prenom = :prenom,
                     login = :login,
