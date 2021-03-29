@@ -1,0 +1,35 @@
+{%  extends 'Pagelayout.twig' %}
+
+{% block subtitle %}
+    <h2>{{ utilisateur.nom }}</h2>
+{% endblock %}
+
+{%  block body %}
+<div class="row justify-content-center">
+  <div class="col-9">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+            <th scope="col">Nom</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Login</th>
+            <th scope="col">Mot de passe</th>
+            </tr>
+        </thead>
+        <tbody>
+              <tr>
+                  <td>{{ utilisateur.nom }}</td>
+                  <td>{{ utilisateur.prenom }}</td>
+                  <td>{{ utilisateur.login }}</td>
+                  <td>{{ utilisateur.mot_de_passe }}</td>
+              </tr>
+          </tbody>   
+        </table>
+        <form method="post" action="index.php">
+            <input type="hidden" name="controller" value="utilisateurs"/>
+            <input type="hidden" name="action" value="createUtilisateur"/>
+            <button type="submit" class="btn btn-light" name="retour">Retour</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
