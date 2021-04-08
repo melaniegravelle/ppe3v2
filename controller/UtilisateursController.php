@@ -67,7 +67,7 @@ class UtilisateursController extends Controller
                 'nom'               => $_REQUEST['nom'],
                 'prenom'            => $_REQUEST['prenom'],
                 'login'             => $_REQUEST['login'],
-                'motDePasse'      => $_REQUEST['mot_de_passe'],
+                'mot_de_passe'      => $_REQUEST['mot_de_passe'],
                 'statut'            => $_REQUEST['statut']
             ];
             $newUtilisateur = new Utilisateurs( $dataDb );
