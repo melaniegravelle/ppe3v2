@@ -28,7 +28,8 @@ class UtilisateursController extends Controller
     {
         $listUtilisateurs = $this->utilisateurManager->getAllUtilisateurs();
         $data = [   'listUtilisateurs'=>$listUtilisateurs, 
-                    'isConnected'=>$_SESSION['isConnected']];
+                    'isConnected'     =>$_SESSION['isConnected'],
+                    'isAdmin'         => $_SESSION['isAdmin']];
         
         $this->render( 'listUtilisateurs', $data );
     }
@@ -37,7 +38,8 @@ class UtilisateursController extends Controller
     {
         $affUtilisateur = $this->utilisateurManager->getUtilisateur($_GET['id']);
         $data = [   'utilisateur'=>$affUtilisateur,
-                    'isConnected'=>$_SESSION['isConnected']];
+                    'isConnected'=>$_SESSION['isConnected'],
+                    'isAdmin'    => $_SESSION['isAdmin']];
         $this->render( 'affUtilisateur', $data );
     }
 
@@ -45,7 +47,8 @@ class UtilisateursController extends Controller
     {
         $modifUtilisateur = $this->utilisateurManager->getUtilisateur($_REQUEST['id']);
         $data = [   'utilisateur'=>$modifUtilisateur,
-        'isConnected'=>$_SESSION['isConnected']];
+                    'isConnected'=>$_SESSION['isConnected'],
+                    'isAdmin'    => $_SESSION['isAdmin']];
         $this->render( 'modifUtilisateur', $data );  
 
         if(isset( $_REQUEST['retour'] ))
@@ -112,10 +115,11 @@ class UtilisateursController extends Controller
             {
                 $pass = $user['mot_de_passe'];
                 if( $this->sodiumSecure->verifWord( $pass, $mot_de_passe ) ) {
-                    // var_dump( $user );
+                    //var_dump( $user );
                     $_SESSION['isConnected'] = true;
                     $_SESSION['isAdmin'] = $user['statut'];
-                    $data = ['isConnected'=>$_SESSION['isConnected']];
+                    $data = [   'isConnected'=>$_SESSION['isConnected'],
+                                'isAdmin'=>$_SESSION['statut']];
                     $this->render( 'index', $data );
                 } else {
                     $data = [ 
