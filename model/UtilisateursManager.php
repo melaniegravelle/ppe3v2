@@ -30,7 +30,7 @@ class UtilisateursManager extends Manager
             ':nom' => $utilisateurs->getNom(),
             ':prenom' => $utilisateurs->getPrenom(),
             ':login' => $utilisateurs->getLogin(),
-            ':mot_de_passe' => $utilisateurs->getMotdePasse(),
+            ':motDePasse' => $utilisateurs->getMotdePasse(),
             ':statut' => $utilisateurs->getStatut(),
             
         ]);
@@ -75,7 +75,7 @@ class UtilisateursManager extends Manager
                 SET nom = :nom,
                     prenom = :prenom,
                     login = :login,
-                    mot_de_passe = :mot_de_passe
+                    motDePasse = :mot_de_passe
                 WHERE id = :id'
             );
         $res = $q->execute([':id' => $idUtilisateur]);
