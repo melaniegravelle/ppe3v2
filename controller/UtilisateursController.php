@@ -45,16 +45,20 @@ class UtilisateursController extends Controller
 
     public function modifUtilisateurAction()
     {
-        $modifUtilisateur = $this->utilisateurManager->getUtilisateur($_REQUEST['id']);
-        $data = [   'utilisateur'=>$modifUtilisateur,
-                    'isConnected'=>$_SESSION['isConnected'],
-                    'isAdmin'    => $_SESSION['isAdmin']];
-        $this->render( 'modifUtilisateur', $data );  
-
         if(isset( $_REQUEST['retour'] ))
         {
             $this->listUtilisateursAction();
         }
+        else
+        {
+            $modifUtilisateur = $this->utilisateurManager->getUtilisateur($_REQUEST['id']);
+            $data = [   'utilisateur'=>$modifUtilisateur,
+                        'isConnected'=>$_SESSION['isConnected'],
+                        'isAdmin'    => $_SESSION['isAdmin']];
+            $this->render( 'modifUtilisateur', $data );  
+        }
+
+        
     }
 
     public function supprUtilisateurAction()
