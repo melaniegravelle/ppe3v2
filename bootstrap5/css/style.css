@@ -1,0 +1,24 @@
+/* -------------- GENERALE */
+
+h1
+{
+    font-family : 'alexbrush';
+    text-align  : center;
+    margin : 8% 0% 2% 0%;
+}
+
+h2
+{
+    text-align  : center;
+    color : grey;
+}
+
+
+/* -------------- AJOUT POLICE */
+
+@font-face 
+{
+    font-family: "alexbrush";
+    src: url(../../fonts/AlexBrush-Regular.ttf) format("truetype"),
+    url(../../fonts/AlexBrush-Regular.woff) format("woff");
+}

@@ -1,0 +1,39 @@
+{%  extends 'Pagelayout.twig' %}
+
+{% block subtitle %}
+    <h2>Créer un nouvel utilisateur</h2>
+{% endblock %}
+
+{%  block body %}
+    <div class="row justify-content-center">
+        <div class="col-9">
+            <form method="post" action="index.php">
+                <input type="hidden" name="controller" value="utilisateurs"/>
+                <input type="hidden" name="action" value="createUtilisateur"/>
+                <div class="form-group">
+                    <label for="nom">Nom</label>
+                    <input type="text" class="form-control" name="nom" autocomplete="off">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" class="form-control" name="prenom" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label for="login">Identifiant</label>
+                    <input type="email" class="form-control" name="login" aria-describedby="indicationIdentifiant" autocomplete="off">
+                    <small id="indicationIdentifiant" class="form-text text-muted">Inscrire une adresse email</small>
+                </div>
+                <div class="form-group">
+                    <label for="mot_de_passe">Mot de passe</label>
+                    <input type="password" class="form-control" name="mot_de_passe" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <input class="form-check-input" type="checkbox" value="1" name="statut" id="statut">
+                    <label class="form-check-label" for="statut">
+                        Administrateur
+                    </label>
+                </div>
+                <button type="submit" id="inscription" name="ajouter" class="btn btn-primary">Inscrire</button>
+                <button type="submit" name="retour" class="btn btn-light">Retour</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
