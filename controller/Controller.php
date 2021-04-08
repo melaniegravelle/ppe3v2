@@ -15,10 +15,9 @@ abstract class Controller
          * On détermine s'il existe dans l'url un paramètre
          * action correspondant à une action du contrôleur
          */
-        if( isset( $_REQUEST['action'] ) &&  method_exists($this, $_REQUEST["action"] . 'Action' )) {
-
+        if( isset($_GET['action'] ) and method_exists($this, $_GET["action"] . 'Action' )) {
             //Si c'est le cas, on appelle cette action
-            $action = $_REQUEST["action"] . 'Action';
+            $action = $_GET["action"] . 'Action';
             $this->$action();
         } else {
             $this->defaultAction();
@@ -65,8 +64,7 @@ abstract class Controller
             'title' => "Error",
             'message' => $message
         ];
-        // $this->render("message", $data);
-        var_dump($data);
+        $this->render("message", $data);
     }
 
 

@@ -1,25 +1,15 @@
-h1
+h1,h2
 {
     text-align:center;
-    font-family: 'alexbrush';
-    margin-top: 8%;
-    font-size: 70px;
 }
 
-h2, h3 {
-    text-align:center;
-    font-family: 'alexbrush';
+h2 {
     color: #999;
 }
 
 h6.text-muted {
     text-align: right;
     font-size: 0.8rem;
-}
-
-a
-{
-    color: #999;
 }
 
 .news p
@@ -46,21 +36,4 @@ a
 {
     text-decoration: none;
     color: blue;
-}
-
-tbody, nav, th, #newuser, .list-group-item.list-group-item-action.flex-column.align-items-start, .btnReturnBillets, label
-{
-    font-family: Courier New, monospace;
-}
-
-.card-body, .card-header
-{
-    font-family: Times, Times New Roman, serif;
-}
-
-@font-face 
-{
-    font-family: "alexbrush";
-    src: url('../../fonts/AlexBrush-Regular.ttf') format("truetype"),
-    url('../../fonts/AlexBrush-Regular.woff') format("woff");
 }
