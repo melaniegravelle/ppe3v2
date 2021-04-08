@@ -49,17 +49,59 @@ class UtilisateursController extends Controller
         {
             $this->listUtilisateursAction();
         }
-        else
+        elseif( isset( $_REQUEST['modifier'] ))
         {
+            $modifUtilisateur = $this->utilisateurManager->getUtilisateur($_REQUEST['id']);
+
+            $modifUtil = new Utilisateurs( $modifUtilisateur );
+
+            $oldPass = $modifUtil->getMotDePasse();
+
+            if( $oldPass !== $_REQUEST['mot_de_passe'] ) {
+                $mot_de_passe_hache = $this->sodiumSecure->hashWord($_REQUEST['mot_de_passe']);
+            } else {
+                $mot_de_passe_hache = $_REQUEST['mot_de_passe'];
+            }    
+            $dataDb = [
+                'nom'               => $_REQUEST['nom'],
+                'prenom'            => $_REQUEST['prenom'],
+                'login'             => $_REQUEST['login'],
+                'motDePasse'        => $mot_de_passe_hache
+            ];   
+
+          // var_dump( $dataDb );die; 
+            $modifUtil->setNom( $dataDb['nom'] );
+            $modifUtil->setPrenom( $dataDb['prenom'] );
+            $modifUtil->setLogin( $dataDb['login'] );
+            $modifUtil->setMotDePasse( $dataDb['motDePasse'] );
+
+            if( $this->utilisateurManager->modifUtilisateur( $modifUtil ) ) {
+
+                $data = [   'utilisateur'=>$modifUtil, 
+                            'isConnected'=>$_SESSION['isConnected'],
+                            'isAdmin'    => $_SESSION['isAdmin']
+                        ];
+            } else {
+                $data = [
+                    'message' => 'blabla'
+                ];
+            }
+            $this->listUtilisateursAction();
+
+        } else {
             $modifUtilisateur = $this->utilisateurManager->getUtilisateur($_REQUEST['id']);
             $data = [   'utilisateur'=>$modifUtilisateur,
                         'isConnected'=>$_SESSION['isConnected'],
                         'isAdmin'    => $_SESSION['isAdmin']];
             $this->render( 'modifUtilisateur', $data );  
-        }
 
-        
+        }
+       
     }
+
+
+
+
 
     public function supprUtilisateurAction()
     {

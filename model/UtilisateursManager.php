@@ -31,8 +31,7 @@ class UtilisateursManager extends Manager
             ':prenom' => $utilisateurs->getPrenom(),
             ':login' => $utilisateurs->getLogin(),
             ':mot_de_passe' => $utilisateurs->getMotdePasse(),
-            ':statut' => $utilisateurs->getStatut(),
-            
+            ':statut' => $utilisateurs->getStatut(),     
         ]);
         if( $ret ) {
             $ret = $this->manager->db->lastInsertId();
@@ -84,7 +83,7 @@ class UtilisateursManager extends Manager
         return $res;
     }
 
-    public function modifUtilisateur($idUtilisateur)
+    public function modifUtilisateur( Utilisateurs $user )
     {
         $q = $this->manager
             ->db
@@ -96,7 +95,13 @@ class UtilisateursManager extends Manager
                     mot_de_passe = :mot_de_passe
                 WHERE id = :id'
             );
-        $res = $q->execute([':id' => $idUtilisateur]);
+        $res = $q->execute([
+            ':id' => $user->getId(), 
+            ':nom' => $user->getNom(), 
+            ':prenom' => $user->getPrenom(), 
+            ':login' => $user->getLogin(), 
+            ':mot_de_passe' => $user->getMotDePasse()
+        ]);
         return $res;
     }
 
