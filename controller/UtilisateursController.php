@@ -83,7 +83,7 @@ class UtilisateursController extends Controller
                         ];
             } else {
                 $data = [
-                    'message' => 'blabla'
+                    'message' => 'Erreur : La modification a échoué'
                 ];
             }
             $this->listUtilisateursAction();
