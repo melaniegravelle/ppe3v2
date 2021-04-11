@@ -7,7 +7,7 @@ require_once 'vendor/autoload.php';
 ini_set( 'display_errors', 1 );
 error_reporting( E_ALL );
 
-$controllers = ['index', 'connexion' ,'utilisateurs'];
+$controllers = ['index', 'connexion' ,'utilisateurs', 'resultats', 'equipes'];
 
 /*
  * On teste si le paramètre controller existe
