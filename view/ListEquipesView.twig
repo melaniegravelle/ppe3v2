@@ -1,0 +1,27 @@
+{%  extends 'Pagelayout.twig' %}
+
+{% block subtitle %}
+    <h2>Gestion des équipes</h2>
+{% endblock %}
+
+{%  block body %}
+<div class="row justify-content-center">
+  <div class="col-9">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Nom</th>
+          <th scope="col">Entraineur</th>
+          <th scope="col">Logo</th>
+        </tr>
+      </thead>
+      <tbody>
+      <td><a href="?controller=equipes&action=AffEquipe&id={{equipes.id}}">{{ equipes.nom_equipe }}</a></td>
+      <td><p>{{ equipes.nom_entraineur }}</p></td>
+      <td><p>{{ equipes.logo}}</p></td>
+      <td>{{ resultat.journee}}</td>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

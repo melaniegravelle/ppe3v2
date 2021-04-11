@@ -5,4 +5,24 @@
 {% endblock %}
 
 {%  block body %}
+<div class="row justify-content-center">
+  <div class="col-9">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Equipe domicile</th>
+          <th scope="col">Score</th>
+          <th scope="col">Equipe visiteur</th>
+          <th scope="col">Date</th>
+        </tr>
+      </thead>
+      <tbody>
+      <td><a href="?controller=equipes&action=AffEquipe&id={{resultat.id_equipe_domicile}}">{{ resultat.equipe_domicile }}</a></td>
+      <td><p>{{ resultat.resultat_domicile }} - {{ resultat.resultat_visiteur }}</p></td>
+      <td><a href="?controller=equipes&action=AffEquipe&id={{resultat.id_equipe_visiteur}}">{{ resultat.equipe_visiteur}}</a></td>
+      <td>{{ resultat.journee}}</td>
+      </tbody>
+    </table>
+  </div>
+</div>
 {% endblock %}

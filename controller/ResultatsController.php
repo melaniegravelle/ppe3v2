@@ -3,20 +3,29 @@ namespace controller;
 
 use model\Resultats;
 use model\ResultatsManager;
-// use classes\sodiumSecure;
 
 class ResultatsController extends Controller
 {
+    protected $resultatsManagers;
+
     public function __construct()
     {
         $this->resultatsManagers = new ResultatsManager();
-
-        // $this->sodiumSecure = new SodiumSecure();
-        // parent::__construct();
+        parent::__construct();
     }
 
     public function defaultAction()
     {
 
+    }
+
+    public function listResultatsAction()
+    {
+        $listResultats = $this->resultatsManager->getAllResultats();
+        $data = [   'listResultats'   =>$listResultats, 
+                    'isConnected'     =>$_SESSION['isConnected'],
+                    'isAdmin'         => $_SESSION['isAdmin']];
+        
+        $this->render( 'listResultats', $data );
     }
 }
