@@ -6,7 +6,7 @@ use model\ResultatsManager;
 
 class ResultatsController extends Controller
 {
-    protected $resultatsManagers;
+    protected $resultatsManager;
 
     public function __construct()
     {
