@@ -16,12 +16,14 @@
           <th scope="col">Date</th>
         </tr>
       </thead>
-      <tbody>
-      <td><a href="?controller=equipes&action=AffEquipe&id={{resultats.id_equipe_domicile}}">{{resultats.equipe_domicile}}</a></td>
-      <td><p>{{resultats.resultat_domicile}} - {{resultats.resultat_visiteur}}</p></td>
-      <td><a href="?controller=equipes&action=AffEquipe&id={{resultats.id_equipe_visiteur}}">{{resultats.equipe_visiteur}}</a></td>
-      <td>{{resultats.journee}}</td>
-      </tbody>
+      {% for resultat in listResultats %}
+        <tbody>
+        <td><a href="?controller=equipes&action=AffEquipe&id={{resultat.id_equipe_domicile}}">{{resultat.equipe_domicile}}</a></td>
+        <td><p>{{resultat.resultat_domicile}} - {{resultat.resultat_visiteur}}</p></td>
+        <td><a href="?controller=equipes&action=AffEquipe&id={{resultat.id_equipe_visiteur}}">{{resultat.equipe_visiteur}}</a></td>
+        <td>{{resultat.journee}}</td>
+        </tbody>
+      {% endfor %}
     </table>
   </div>
 </div>
