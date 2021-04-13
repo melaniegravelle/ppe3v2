@@ -10,7 +10,7 @@ class ResultatsController extends Controller
 
     public function __construct()
     {
-        $this->resultatsManagers = new ResultatsManager();
+        $this->resultatsManager = new ResultatsManager();
         parent::__construct();
     }
 
