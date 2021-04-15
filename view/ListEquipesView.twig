@@ -15,12 +15,13 @@
           <th scope="col">Logo</th>
         </tr>
       </thead>
-      <tbody>
-      <td><a href="?controller=equipes&action=AffEquipe&id={{equipes.id}}">{{ equipes.nom_equipe }}</a></td>
-      <td><p>{{ equipes.nom_entraineur }}</p></td>
-      <td><p>{{ equipes.logo}}</p></td>
-      <td>{{ resultat.journee}}</td>
-      </tbody>
+      {% for equipe in listEquipes %}
+        <tbody>
+        <td><a href="?controller=equipes&action=AffEquipe&id={{equipe.id}}">{{equipe.nom_equipe}}</a></td>
+        <td><p>{{equipe.nom_entraineur}}</p></td>
+        <td><p>{{equipe.logo}}</p></td>
+        </tbody>
+      {% endfor %}
     </table>
   </div>
 </div>

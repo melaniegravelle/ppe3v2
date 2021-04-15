@@ -26,6 +26,6 @@ class EquipesController extends Controller
                     'isConnected'     =>$_SESSION['isConnected'],
                     'isAdmin'         => $_SESSION['isAdmin']];
         
-        $this->render( 'equipesManager', $data );
+        $this->render( 'listEquipes', $data );
     }
 }
