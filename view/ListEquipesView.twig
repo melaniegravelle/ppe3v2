@@ -13,12 +13,14 @@
           <th scope="col">Nom</th>
           <th scope="col">Entraineur</th>
           <th scope="col">Logo</th>
+          <th scope="col">Logo Text</th>
         </tr>
       </thead>
       {% for equipe in listEquipes %}
         <tbody>
-        <td><a href="?controller=equipes&action=AffEquipe&id={{equipe.id}}">{{equipe.nom_equipe}}</a></td>
+        <td><a href="?controller=equipes&action=AffEquipe&id={{equipe.id_equipe}}" target="_blank">{{equipe.nom_equipe}}</a></td>
         <td><p>{{equipe.nom_entraineur}}</p></td>
+        <td><img src={{equipe.logo}} /></td>
         <td><p>{{equipe.logo}}</p></td>
         </tbody>
       {% endfor %}

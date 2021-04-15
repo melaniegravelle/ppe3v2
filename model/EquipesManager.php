@@ -16,6 +16,7 @@ class EquipesManager extends Manager
         while( $donnees = $q->fetch(\PDO::FETCH_ASSOC) ) {
             $listEquipes[] = $donnees;
         }
+        // var_dump($listEquipes);die;
         return $listEquipes;
     }
 }

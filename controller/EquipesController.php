@@ -21,8 +21,8 @@ class EquipesController extends Controller
 
     public function listEquipesAction()
     {
-        $equipesManager = $this->equipesManager->getAllEquipes();
-        $data = [   'equipesManager'   =>$equipesManager, 
+        $listEquipes = $this->equipesManager->getAllEquipes();
+        $data = [   'listEquipes'   =>$listEquipes, 
                     'isConnected'     =>$_SESSION['isConnected'],
                     'isAdmin'         => $_SESSION['isAdmin']];
         
