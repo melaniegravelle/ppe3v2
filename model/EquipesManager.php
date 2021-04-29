@@ -37,4 +37,18 @@ class EquipesManager extends Manager
         }
         return $ret;
     }
+
+    public function getEquipe($idEquipe)
+    {
+        $q = $this->manager
+            ->db
+            ->prepare(
+                'SELECT 
+                    *
+                FROM equipes 
+                WHERE id_equipe = :id_equipe'
+            );
+        $q->execute([':id_equipe' => $idEquipe]);
+        return $q->fetch(\PDO::FETCH_ASSOC);
+    }
 }

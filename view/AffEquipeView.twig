@@ -1,0 +1,24 @@
+{%  extends 'Pagelayout.twig' %}
+
+{% block subtitle %}
+    <h2>{{equipe.nom_equipe}}</h2>
+{% endblock %}
+
+{%  block body %}
+<div class="row justify-content-center">
+    <div class="col-9">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Entraîneur : {{equipe.nom_entraineur}}</h5>
+                <p class="card-text">{{equipe.info}}</p>
+            </div>
+            <img src=public/upload/{{equipe.logo}} class="card-img-bottom" style="width:200px;height:200px;margin-left:auto;margin-right: auto;">
+        </div>
+        <form method="post" action="index.php">
+            <input type="hidden" name="controller" value="equipes"/>
+            <input type="hidden" name="action" value="listEquipes"/>
+            <button type="submit" class="btn btn-light" name="retour" style="margin-top:20px;">Retour</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

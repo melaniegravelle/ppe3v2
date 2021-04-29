@@ -28,4 +28,13 @@ class EquipesController extends Controller
         
         $this->render( 'listEquipes', $data );
     }
+
+    public function affEquipeAction()
+    {
+        $affEquipe = $this->equipesManager->getEquipe($_GET['id']);
+        $data = [   'equipe'=>$affEquipe,
+                    'isConnected'=>$_SESSION['isConnected'],
+                    'isAdmin'    => $_SESSION['isAdmin']];
+        $this->render( 'affEquipe', $data );
+    }
 }
