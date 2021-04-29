@@ -1,0 +1,24 @@
+{%  extends 'Pagelayout.twig' %}
+
+{% block subtitle %}
+    <h2>Créer une équipe</h2>
+{% endblock %}
+
+{%  block body %}
+<div class="row justify-content-center">
+    <div class="col-9">
+        <form method="post" action="index.php">
+            <input type="hidden" name="controller" value="equipes"/>
+            <input type="hidden" name="action" value="createEquipe"/>
+            <div class="form-group">
+                <label for="nom_equipe">Nom de l'équipe</label>
+                <input type="text" class="form-control" name="nom" autocomplete="off">
+                <label for="_nom_entraineur">Entraîneur</label>
+                <input type="text" class="form-control" name="prenom" autocomplete="off">
+            </div>
+            <button type="submit" id="inscription" name="ajouter" class="btn btn-primary">Inscrire</button>
+            <button type="submit" name="retour" class="btn btn-light">Retour</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

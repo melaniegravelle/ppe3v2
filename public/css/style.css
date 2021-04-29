@@ -48,7 +48,7 @@ a
     color: blue;
 }
 
-tbody, nav, th, #newuser, .list-group-item.list-group-item-action.flex-column.align-items-start, .btnReturnBillets, label
+tbody, nav, th, #newequipe ,#newuser, .list-group-item.list-group-item-action.flex-column.align-items-start, .btnReturnBillets, label
 {
     font-family: Courier New, monospace;
 }
