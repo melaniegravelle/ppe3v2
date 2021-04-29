@@ -37,4 +37,38 @@ class EquipesController extends Controller
                     'isAdmin'    => $_SESSION['isAdmin']];
         $this->render( 'affEquipe', $data );
     }
+
+    public function createEquipeAction()
+    {
+        if( isset( $_REQUEST['ajouter'] ) ) {
+            $data_create_equipe = ['isConnected'=>$_SESSION['isConnected']];
+            $dataDb = [
+                'nom_equipe'        => $_REQUEST['nom'],
+                'nom_entraineur'    => $_REQUEST['prenom'],
+                'logo'              => $_REQUEST['logo'],
+                'info'              => $_REQUEST['info'],
+            ];
+            $newEquipe = new Equipes( $dataDb );
+
+            if($this->equipeManager->createEquipe( $newEquipe ) ) 
+            {
+                $this->listEquipesAction();
+            } 
+        }
+        elseif(isset( $_REQUEST['retour'] ))
+        {
+            $this->listEquipesAction();
+        }
+        else 
+        {
+            $data_create_equipe = [
+                'equipe'    => false,
+                'errorMess'      => 'An mistery error occured',
+                'isConnected'    =>$_SESSION['isConnected'],
+                'isAdmin'       => $_SESSION['isAdmin']
+            ];
+            $this->render( 'createEquipe', $data_create_equipe );
+        }
+        
+    }
 }

@@ -6,7 +6,8 @@ class Equipes
     private $_id_equipe,
             $_nom_equipe,
             $_nom_entraineur,
-            $_logo;
+            $_logo,
+            $_info;
 
     public function __construct(array $donnees)
     {
@@ -45,6 +46,11 @@ class Equipes
         return $this->_logo;
     }
 
+    public function getInfo()
+    {
+        return $this->_info;
+    }
+
     /* --------------- SET --------------- */
 
     public function setIdEquipe($_id_equipe)
@@ -60,5 +66,10 @@ class Equipes
     public function setLogo($_logo)
     {
         $this->_logo = $_logo;
+    }
+
+    public function setInfo($_info)
+    {
+        $this->_info = $_info;
     }
 }

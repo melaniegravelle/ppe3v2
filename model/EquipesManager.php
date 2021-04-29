@@ -24,14 +24,16 @@ class EquipesManager extends Manager
     {
         $q = $this->manager
                     ->db
-                    ->prepare('INSERT INTO equipes (nom_equipe, nom_entraineur, logo)
-                                VALUES ( :nom_equipe, :nom_entraineur, :logo)'
+                    ->prepare('INSERT INTO equipes (nom_equipe, nom_entraineur, logo, info)
+                                VALUES ( :nom_equipe, :nom_entraineur, :logo, :info)'
                     );
         $ret = $q->execute([
             ':nom_equipe' => $equipes->getNomEquipe(),
             ':nom_entraineur' => $equipes->getNomEntraineur(),
             ':logo' => $equipes->getLogo(),     
+            ':info' => $equipes->getInfo(),   
         ]);
+        //var_dump($ret);die;
         if( $ret ) {
             $ret = $this->manager->db->lastInsertId();
         }
