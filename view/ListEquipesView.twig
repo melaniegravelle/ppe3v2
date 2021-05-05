@@ -15,9 +15,9 @@
           <th scope="col">Logo</th>
         </tr>
       </thead>
-      {% if isAdmin == 1 %}
+      {# {% if isAdmin == 1 %}
       <button type="button" id="newequipe" class="btn btn-link"><a href="?controller=equipes&action=createEquipe">+ Ajout d'une nouvelle équipe</a></button>
-      {% endif %}
+      {% endif %} #}
       {% for equipe in listEquipes %}
         <tbody>
         <td><a href="?controller=equipes&action=AffEquipe&id={{equipe.id_equipe}}">{{equipe.nom_equipe}}</a></td>
